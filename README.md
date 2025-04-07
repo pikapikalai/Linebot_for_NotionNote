@@ -12,6 +12,8 @@
 
 ## 安裝與設定
 
+### 方法一：直接安裝
+
 1. 克隆專案：
 ```bash
 git clone https://github.com/your-username/linebot-event-manager.git
@@ -30,6 +32,33 @@ pip install -r requirements.txt
 4. 運行應用：
 ```bash
 python main.py
+```
+
+### 方法二：使用Docker
+
+1. 克隆專案：
+```bash
+git clone https://github.com/your-username/linebot-event-manager.git
+cd linebot-event-manager
+```
+
+2. 設定環境變數：
+   - 複製 `.env.example` 為 `.env`
+   - 填入您的LINE Bot和Notion相關設定
+
+3. 使用Docker Compose啟動：
+```bash
+docker compose up -d
+```
+
+4. 查看日誌：
+```bash
+docker compose logs -f
+```
+
+5. 停止服務：
+```bash
+docker compose down
 ```
 
 ## 環境變數說明

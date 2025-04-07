@@ -1,3 +1,8 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
 # Python
 __pycache__/
 *.py[cod]
@@ -14,7 +19,6 @@ lib/
 lib64/
 parts/
 sdist/
-tools/
 var/
 wheels/
 *.egg-info/
@@ -34,6 +38,8 @@ env/
 
 # Environment variables
 .env
+.env.*
+!.env.example
 
 # Logs
 *.log
@@ -49,4 +55,7 @@ Thumbs.db
 
 # Docker
 .docker/
-docker-compose.override.yaml 
+docker-compose.override.yaml
+Dockerfile
+.dockerignore
+compose.yaml 

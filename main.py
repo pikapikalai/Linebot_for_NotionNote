@@ -49,17 +49,22 @@ else:
 if not os.getenv('LINE_CHANNEL_SECRET'):
     print("警告: LINE_CHANNEL_SECRET 未設置")
 else:
-    print("LINE_CHANNEL_SECRET: (已設置)")
+    secret_prefix = os.getenv('LINE_CHANNEL_SECRET')[:10] + "..." if len(os.getenv('LINE_CHANNEL_SECRET')) > 10 else ""
+    print(f"LINE_CHANNEL_SECRET: {secret_prefix} (已設置)")
 
+# 創建Flask應用
 app = Flask(__name__)
 
-# 設定您的 LINE Bot 憑證
-LINE_CHANNEL_ACCESS_TOKEN = os.getenv('LINE_CHANNEL_ACCESS_TOKEN')
-LINE_CHANNEL_SECRET = os.getenv('LINE_CHANNEL_SECRET')
+# 設置LINE Bot配置
+configuration = Configuration(access_token=os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+handler = WebhookHandler(os.getenv('LINE_CHANNEL_SECRET'))
+
+# 健康檢查路由
+@app.route("/health", methods=['GET'])
+def health_check():
+    return {"status": "healthy"}, 200
 
 # 初始化 LINE API 客戶端
-configuration = Configuration(access_token=LINE_CHANNEL_ACCESS_TOKEN)
-handler = WebhookHandler(LINE_CHANNEL_SECRET)
 api_client = ApiClient(configuration)
 line_bot_api = MessagingApi(api_client)
 
