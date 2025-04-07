@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\00pyProject\linebot\main.py", line 6, in <module>
+    from linebot.v3.messaging import (
+ImportError: cannot import name 'RichMenu' from 'linebot.v3.messaging' (C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\linebot\v3\messaging\__init__.py)
